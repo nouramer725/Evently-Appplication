@@ -2,6 +2,7 @@ class AppAssets {
   static const String branding = 'assets/images/branding.png';
   static const String splash = 'assets/images/splash.png';
   static const String eventlyLogo = 'assets/images/Blue White Minimal Modern Simple Bold Business Mag Logo 3.png';
+  static const String eventlyLogoDark = 'assets/images/evently_dark.png';
   static const String splashDark = 'assets/images/splash_dark.png';
   static const String brandingDark = 'assets/images/branding_dark.png';
 

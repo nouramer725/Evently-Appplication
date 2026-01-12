@@ -10,10 +10,22 @@ class AppText {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle get text20SemiBoldDark => GoogleFonts.poppins(
+    color: AppColors.mainTextColorDark,
+    fontSize: sp(20),
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle get text20Medium => GoogleFonts.poppins(
     color: AppColors.inputsColorLight,
     fontSize: sp(20),
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle get text14SemiBold => GoogleFonts.poppins(
+    color: AppColors.mainColorLight,
+    fontSize: sp(14),
+    fontWeight: FontWeight.w700,
   );
 
 
@@ -21,6 +33,14 @@ class AppText {
     color: AppColors.secTextColorLight,
     fontSize: sp(16),
     fontWeight: FontWeight.w400,
+    height: 1.5
+  );
+
+  static TextStyle get text16RegularDark => GoogleFonts.poppins(
+      color: AppColors.secTextColorDark,
+      fontSize: sp(16),
+      fontWeight: FontWeight.w400,
+      height: 1.5
   );
 
 }
