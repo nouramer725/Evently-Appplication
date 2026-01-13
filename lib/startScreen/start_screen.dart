@@ -97,44 +97,44 @@ class StartScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Text(
-              //       AppLocalizations.of(context)!.theme,
-              //       style:
-              //           Theme.of(context).appBarTheme.backgroundColor ==
-              //               AppColors.backgroundColorLight
-              //           ? AppText.text18Medium
-              //           : AppText.text18MediumDark,
-              //     ),
-              //     Row(
-              //       spacing: w(8),
-              //       children: [
-              //         ElevatedButton(
-              //           onPressed: () {
-              //             themeProvider.changeTheme(ThemeMode.light);
-              //           },
-              //           child: Icon(Icons.light_mode, size: w(24)),
-              //         ),
-              //         ElevatedButton(
-              //           style: ElevatedButton.styleFrom(
-              //             backgroundColor: AppColors.inputsColorLight,
-              //             foregroundColor: AppColors.mainColorLight,
-              //             shape: RoundedRectangleBorder(
-              //               borderRadius: BorderRadius.circular(8),
-              //               side: BorderSide(color: AppColors.strokeColorLight),
-              //             ),
-              //           ),
-              //           onPressed: () {
-              //             themeProvider.changeTheme(ThemeMode.dark);
-              //           },
-              //           child: Icon(Icons.dark_mode_outlined, size: w(24)),
-              //         ),
-              //       ],
-              //     ),
-              //   ],
-              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.theme,
+                    style:
+                        Theme.of(context).appBarTheme.backgroundColor ==
+                            AppColors.backgroundColorLight
+                        ? AppText.text18Medium
+                        : AppText.text18MediumDark,
+                  ),
+                  Row(
+                    spacing: w(8),
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          // themeProvider.changeTheme(ThemeMode.light);
+                        },
+                        child: Icon(Icons.light_mode, size: w(24)),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.inputsColorLight,
+                          foregroundColor: AppColors.mainColorLight,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            side: BorderSide(color: AppColors.strokeColorLight),
+                          ),
+                        ),
+                        onPressed: () {
+                          // themeProvider.changeTheme(ThemeMode.dark);
+                        },
+                        child: Icon(Icons.dark_mode_outlined, size: w(24)),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
