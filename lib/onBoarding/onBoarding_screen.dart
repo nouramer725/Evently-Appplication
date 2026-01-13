@@ -47,9 +47,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        elevation: Theme.of(context).appBarTheme.elevation,
         leading: currentPage == 0
             ? const SizedBox()
             : IconButton(
@@ -117,11 +114,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      Theme.of(context).appBarTheme.backgroundColor ==
-                          AppColors.backgroundColorLight
-                      ? AppColors.mainColorLight
-                      : AppColors.mainColorDark,
                   padding: EdgeInsets.symmetric(vertical: h(9)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -146,7 +138,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     required String text,
   }) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: w(20)),
+      padding: EdgeInsets.symmetric(horizontal: w(16)),
       child: SingleChildScrollView(
         child: Column(
           spacing: h(8),

@@ -39,43 +39,94 @@ class AppTheme {
         textStyle: AppText.text14SemiBold,
       ),
     ),
+
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppColors.inputsColorLight,
+      selectedItemColor: AppColors.mainColorLight,
+      unselectedItemColor: AppColors.disableColorLight,
+      selectedIconTheme: IconThemeData(
+        color: AppColors.mainColorLight,
+        size: 24,
+      ),
+      unselectedIconTheme: IconThemeData(
+        color: AppColors.disableColorLight,
+        size: 24,
+      ),
+      selectedLabelStyle: AppText.text12Regular,
+      unselectedLabelStyle: AppText.text12RegularUnSelected,
+    ),
+
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: AppColors.mainColorLight,
+      foregroundColor: AppColors.inputsColorLight,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      elevation: 0,
+    )
   );
 
   static final ThemeData darkTheme = ThemeData(
-      scaffoldBackgroundColor: AppColors.backgroundColorDark,
+    scaffoldBackgroundColor: AppColors.backgroundColorDark,
 
-      appBarTheme: AppBarTheme(
-        backgroundColor: AppColors.backgroundColorDark,
-        elevation: 0,
-        centerTitle: true,
-        iconTheme: IconThemeData(color: AppColors.mainColorDark),
-        actionsIconTheme: IconThemeData(color: AppColors.mainColorDark),
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.backgroundColorDark,
+      elevation: 0,
+      centerTitle: true,
+      iconTheme: IconThemeData(color: AppColors.mainColorDark),
+      actionsIconTheme: IconThemeData(color: AppColors.mainColorDark),
+    ),
+
+    textTheme: TextTheme(
+      bodyMedium: TextStyle(color: AppColors.mainTextColorDark),
+      bodyLarge: TextStyle(color: AppColors.mainTextColorDark),
+      labelLarge: TextStyle(color: AppColors.mainColorDark),
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.mainColorDark,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        textStyle: AppText.text14SemiBold,
       ),
+    ),
 
-      textTheme: TextTheme(
-        bodyMedium: TextStyle(color: AppColors.mainTextColorDark),
-        bodyLarge: TextStyle(color: AppColors.mainTextColorDark),
-        labelLarge: TextStyle(color: AppColors.mainColorDark),
-      ),
-
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.mainColorDark,
-          foregroundColor: Colors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        backgroundColor: AppColors.inputsColorDark,
+        foregroundColor: AppColors.mainTextColorDark,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: BorderSide(color: AppColors.strokeColorDark),
         ),
+        textStyle: AppText.text14SemiBold,
       ),
+    ),
 
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          backgroundColor: AppColors.inputsColorDark,
-          foregroundColor: AppColors.mainColorDark,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side: BorderSide(color: AppColors.strokeColorDark),
-          ),
-          textStyle: AppText.text14SemiBold,
-        ),
-      )
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppColors.backgroundColorDark,
+      selectedItemColor: AppColors.mainColorDark,
+      unselectedItemColor: AppColors.disableColorDark,
+      selectedIconTheme: IconThemeData(
+        color: AppColors.mainColorDark,
+        size: 24,
+      ),
+      unselectedIconTheme: IconThemeData(
+        color: AppColors.disableColorDark,
+        size: 24,
+      ),
+      selectedLabelStyle: AppText.text12RegularDark,
+      unselectedLabelStyle: AppText.text12RegularUnSelected,
+    ),
+
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: AppColors.mainColorDark,
+      foregroundColor: AppColors.inputsColorDark,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      elevation: 0,
+    )
   );
 }

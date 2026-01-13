@@ -1,3 +1,4 @@
+import 'package:evently_app/startScreen/start_screen.dart';
 import 'package:evently_app/utils/app_routes.dart';
 import 'package:evently_app/utils/app_theme.dart';
 import 'package:evently_app/utils/size_config.dart';
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.onBoardingScreenName,
+      initialRoute: AppRoutes.startScreenName,
       routes: {
+        AppRoutes.startScreenName: (context) => StartScreen(),
         AppRoutes.onBoardingScreenName: (context) => OnboardingScreen(),
         AppRoutes.homeScreenName: (context) => HomeScreen(),
       },
