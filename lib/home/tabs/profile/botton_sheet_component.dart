@@ -23,33 +23,60 @@ class BottonSheetComponent extends StatelessWidget {
               languageProvider.changeLanguage('ar');
             },
             child: languageProvider.appLocal == 'ar'
-                ? getSelectedRow(AppLocalizations.of(context)!.arabic)
-                : getUnSelectedRow(AppLocalizations.of(context)!.arabic),
+                ? getSelectedRow(AppLocalizations.of(context)!.arabic, context)
+                : getUnSelectedRow(
+                    AppLocalizations.of(context)!.arabic,
+                    context,
+                  ),
           ),
           InkWell(
             onTap: () {
               languageProvider.changeLanguage('en');
             },
             child: languageProvider.appLocal == 'en'
-                ? getSelectedRow(AppLocalizations.of(context)!.english)
-                : getUnSelectedRow(AppLocalizations.of(context)!.english),
+                ? getSelectedRow(AppLocalizations.of(context)!.english, context)
+                : getUnSelectedRow(
+                    AppLocalizations.of(context)!.english,
+                    context,
+                  ),
           ),
         ],
       ),
     );
   }
 
-  Widget getSelectedRow(String text) {
+  Widget getSelectedRow(String text, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(text, style: AppText.text20SemiBold),
-        Icon(Icons.check, color: AppColors.mainColorLight),
+        Text(
+          text,
+          style:
+              Theme.of(context).appBarTheme.backgroundColor ==
+                  AppColors.backgroundColorLight
+              ? AppText.text20SemiBold
+              : AppText.text20SemiBoldDark,
+        ),
+        Icon(
+          Icons.check,
+          color:
+              Theme.of(context).appBarTheme.backgroundColor ==
+                  AppColors.backgroundColorLight
+              ? AppColors.mainColorLight
+              : AppColors.mainColorDark,
+        ),
       ],
     );
   }
 
-  Widget getUnSelectedRow(String text) {
-    return Text(text, style: AppText.text20SemiBold);
+  Widget getUnSelectedRow(String text, BuildContext context) {
+    return Text(
+      text,
+      style:
+          Theme.of(context).appBarTheme.backgroundColor ==
+              AppColors.backgroundColorLight
+          ? AppText.text20SemiBold
+          : AppText.text20SemiBoldDark,
+    );
   }
 }

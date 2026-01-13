@@ -63,6 +63,11 @@ class AppTheme {
         borderRadius: BorderRadius.circular(50),
       ),
       elevation: 0,
+    ),
+
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: AppColors.backgroundColorLight,
+
     )
   );
 
@@ -127,6 +132,10 @@ class AppTheme {
         borderRadius: BorderRadius.circular(50),
       ),
       elevation: 0,
+    ),
+
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: AppColors.backgroundColorDark,
     )
   );
 }

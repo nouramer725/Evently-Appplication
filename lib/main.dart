@@ -1,4 +1,5 @@
 import 'package:evently_app/provider/app_language_provider.dart';
+import 'package:evently_app/provider/app_theme_provider.dart';
 import 'package:evently_app/startScreen/start_screen.dart';
 import 'package:evently_app/utils/app_routes.dart';
 import 'package:evently_app/utils/app_theme.dart';
@@ -11,8 +12,11 @@ import 'onBoarding/onBoarding_screen.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => AppLanguageProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppLanguageProvider()),
+        ChangeNotifierProvider(create: (_) => AppThemeProvider()),
+      ],
       child: const MyApp(),
     ),
   );
@@ -24,13 +28,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<AppLanguageProvider>(context);
+    var themeProvider = Provider.of<AppThemeProvider>(context);
     SizeConfig.init(context);
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       title: 'Flutter Demo',
       locale: Locale(languageProvider.appLocal),
+      themeMode: themeProvider.appTheme,
       theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.startScreenName,
       routes: {

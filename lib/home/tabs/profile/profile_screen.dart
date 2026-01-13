@@ -1,10 +1,11 @@
 import 'package:evently_app/home/tabs/profile/profile_widget.dart';
+import 'package:evently_app/utils/app_routes.dart';
 import 'package:evently_app/utils/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../../l10n/app_localizations.dart';
 import '../../../provider/app_language_provider.dart';
+import '../../../provider/app_theme_provider.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/responsive.dart';
@@ -24,79 +25,90 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<AppLanguageProvider>(context);
+    var themeProvider = Provider.of<AppThemeProvider>(context);
     return Scaffold(
-      body: Column(
-        spacing: h(12),
-        children: [
-          CircleAvatar(
-            radius: w(70),
-            backgroundImage: AssetImage(AppAssets.routeLogo),
-          ),
-          Text(
-            "John Doe",
-            style:
-                Theme.of(context).appBarTheme.backgroundColor ==
-                    AppColors.backgroundColorLight
-                ? AppText.text20SemiBold
-                : AppText.text20SemiBoldDark,
-          ),
-          Text(
-            "johnsafwat.route@gmail.com",
-            style:
-                Theme.of(context).appBarTheme.backgroundColor ==
-                    AppColors.backgroundColorLight
-                ? AppText.text14Regular
-                : AppText.text14RegularDark,
-          ),
-          ProfileWidget(
-            text: AppLocalizations.of(context)!.darkmode,
-            icon: Switch(
-              value: isSwitched,
-              onChanged: (value) {
-                isSwitched = !isSwitched;
-                setState(() {});
-              },
-              activeThumbColor:
-                  Theme.of(context).appBarTheme.backgroundColor ==
-                      AppColors.backgroundColorLight
-                  ? AppColors.mainColorLight
-                  : AppColors.mainColorDark,
-              inactiveThumbColor:
-                  Theme.of(context).appBarTheme.backgroundColor ==
-                      AppColors.backgroundColorLight
-                  ? AppColors.disableColorLight
-                  : AppColors.disableColorDark,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: w(16), vertical: h(16)),
+        child: Column(
+          spacing: h(12),
+          children: [
+            CircleAvatar(
+              radius: w(70),
+              backgroundImage: AssetImage(AppAssets.routeLogo),
             ),
-          ),
-          ProfileWidget(
-            text: languageProvider.language == null
-                ? AppLocalizations.of(context)!.language
-                : languageProvider.appLocal == 'en'
-                ? AppLocalizations.of(context)!.english
-                : AppLocalizations.of(context)!.arabic,
-            icon: Icon(
-              Icons.arrow_forward_ios,
-              color:
+            Text(
+              "John Doe",
+              style:
                   Theme.of(context).appBarTheme.backgroundColor ==
                       AppColors.backgroundColorLight
-                  ? AppColors.mainColorLight
-                  : AppColors.mainColorDark,
+                  ? AppText.text20SemiBold
+                  : AppText.text20SemiBoldDark,
             ),
-            onTap: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return BottonSheetComponent();
+            Text(
+              "johnsafwat.route@gmail.com",
+              style:
+                  Theme.of(context).appBarTheme.backgroundColor ==
+                      AppColors.backgroundColorLight
+                  ? AppText.text14Regular
+                  : AppText.text14RegularDark,
+            ),
+            ProfileWidget(
+              text: AppLocalizations.of(context)!.darkmode,
+              icon: Switch(
+                value: isSwitched,
+                onChanged: (value) {
+                  themeProvider.changeTheme(
+                    isSwitched ? ThemeMode.dark : ThemeMode.light,
+                  );
+                  setState(() {});
                 },
-              );
-            },
-          ),
-          ProfileWidget(
-            text: AppLocalizations.of(context)!.logout,
-            onTap: () {},
-            icon: Image.asset(AppAssets.logOutIcon),
-          ),
-        ],
+                activeThumbColor:
+                    Theme.of(context).appBarTheme.backgroundColor ==
+                        AppColors.backgroundColorLight
+                    ? AppColors.mainColorLight
+                    : AppColors.mainColorDark,
+                inactiveThumbColor:
+                    Theme.of(context).appBarTheme.backgroundColor ==
+                        AppColors.backgroundColorLight
+                    ? AppColors.disableColorLight
+                    : AppColors.disableColorDark,
+              ),
+            ),
+            ProfileWidget(
+              text: languageProvider.language == null
+                  ? AppLocalizations.of(context)!.language
+                  : languageProvider.appLocal == 'en'
+                  ? AppLocalizations.of(context)!.english
+                  : AppLocalizations.of(context)!.arabic,
+              icon: Icon(
+                Icons.arrow_forward_ios,
+                color:
+                    Theme.of(context).appBarTheme.backgroundColor ==
+                        AppColors.backgroundColorLight
+                    ? AppColors.mainColorLight
+                    : AppColors.mainColorDark,
+              ),
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return BottonSheetComponent();
+                  },
+                );
+              },
+            ),
+            ProfileWidget(
+              text: AppLocalizations.of(context)!.logout,
+              onTap: () {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  AppRoutes.startScreenName,
+                  (route) => false,
+                );
+              },
+              icon: Image.asset(AppAssets.logOutIcon),
+            ),
+          ],
+        ),
       ),
     );
   }
