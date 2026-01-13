@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_routes.dart';
@@ -17,33 +18,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController controller = PageController();
   int currentPage = 0;
 
-  final pages = [
-    {
-      "imageLight": AppAssets.onBoarding1,
-      "imageDark": AppAssets.onBoarding1Dark,
-      "title": "Find Events That Inspire You",
-      "text":
-          "Dive into a world of events crafted to fit your unique interests. Whether you're into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.",
-    },
-    {
-      "imageLight": AppAssets.onBoarding2,
-      "imageDark": AppAssets.onBoarding2Dark,
-      "title": "Effortless Event Planning",
-      "text":
-          "Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.",
-    },
-    {
-      "imageLight": AppAssets.onBoarding3,
-      "imageDark": AppAssets.onBoarding3Dark,
-      "title": "Connect & Share Moments",
-      "text":
-          "Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.",
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+
+    final pages = [
+      {
+        "imageLight": AppAssets.onBoarding1,
+        "imageDark": AppAssets.onBoarding1Dark,
+        "title": AppLocalizations.of(context)!.title1,
+        "text": AppLocalizations.of(context)!.text1,
+      },
+      {
+        "imageLight": AppAssets.onBoarding2,
+        "imageDark": AppAssets.onBoarding2Dark,
+        "title": AppLocalizations.of(context)!.title2,
+        "text": AppLocalizations.of(context)!.text2,
+      },
+      {
+        "imageLight": AppAssets.onBoarding3,
+        "imageDark": AppAssets.onBoarding3Dark,
+        "title": AppLocalizations.of(context)!.title3,
+        "text": AppLocalizations.of(context)!.text3,
+      },
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -72,7 +70,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     context,
                     AppRoutes.homeScreenName,
                   ),
-                  child: Text("Skip"),
+                  child: Text(AppLocalizations.of(context)!.skip),
                 ),
         ],
       ),
@@ -87,6 +85,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               itemBuilder: (context, index) {
                 final page = pages[index];
                 return buildPage(
+                  totalPages: pages.length,
                   imageLight: page["imageLight"]!,
                   imageDark: page["imageDark"]!,
                   title: page["title"]!,
@@ -120,7 +119,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 child: Text(
-                  currentPage == pages.length - 1 ? "Get Started" : "Next",
+                  currentPage == pages.length - 1
+                      ? AppLocalizations.of(context)!.getstarted
+                      : AppLocalizations.of(context)!.next,
                   style: AppText.text20Medium,
                 ),
               ),
@@ -136,6 +137,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     required String imageDark,
     required String title,
     required String text,
+    required int totalPages,
   }) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: w(16)),
@@ -155,7 +157,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
-                pages.length,
+                totalPages,
                 (index) => AnimatedContainer(
                   duration: Duration(milliseconds: 300),
                   margin: EdgeInsets.symmetric(horizontal: 4, vertical: 8),

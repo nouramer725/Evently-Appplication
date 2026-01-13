@@ -1,10 +1,14 @@
 import 'package:evently_app/home/tabs/profile/profile_widget.dart';
 import 'package:evently_app/utils/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../l10n/app_localizations.dart';
+import '../../../provider/app_language_provider.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/responsive.dart';
+import 'botton_sheet_component.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -15,9 +19,11 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   bool isSwitched = false;
+  String? language;
 
   @override
   Widget build(BuildContext context) {
+    var languageProvider = Provider.of<AppLanguageProvider>(context);
     return Scaffold(
       body: Column(
         spacing: h(12),
@@ -43,7 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 : AppText.text14RegularDark,
           ),
           ProfileWidget(
-            text: "Dark mode",
+            text: AppLocalizations.of(context)!.darkmode,
             icon: Switch(
               value: isSwitched,
               onChanged: (value) {
@@ -63,7 +69,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           ProfileWidget(
-            text: "Language",
+            text: languageProvider.language == null
+                ? AppLocalizations.of(context)!.language
+                : languageProvider.appLocal == 'en'
+                ? AppLocalizations.of(context)!.english
+                : AppLocalizations.of(context)!.arabic,
             icon: Icon(
               Icons.arrow_forward_ios,
               color:
@@ -72,10 +82,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ? AppColors.mainColorLight
                   : AppColors.mainColorDark,
             ),
-            onTap: () {},
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return BottonSheetComponent();
+                },
+              );
+            },
           ),
           ProfileWidget(
-            text: "Logout",
+            text: AppLocalizations.of(context)!.logout,
             onTap: () {},
             icon: Image.asset(AppAssets.logOutIcon),
           ),

@@ -1,3 +1,4 @@
+import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
@@ -34,7 +35,7 @@ class StartScreen extends StatelessWidget {
               height: h(343),
             ),
             Text(
-              "Personalize Your Experience",
+              AppLocalizations.of(context)!.title4,
               style:
                   Theme.of(context).appBarTheme.backgroundColor ==
                       AppColors.backgroundColorLight
@@ -42,7 +43,7 @@ class StartScreen extends StatelessWidget {
                   : AppText.text20SemiBoldDark,
             ),
             Text(
-              "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
+              AppLocalizations.of(context)!.text4,
               style:
                   Theme.of(context).appBarTheme.backgroundColor ==
                       AppColors.backgroundColorLight
@@ -53,7 +54,7 @@ class StartScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Language",
+                  AppLocalizations.of(context)!.language,
                   style:
                       Theme.of(context).appBarTheme.backgroundColor ==
                           AppColors.backgroundColorLight
@@ -63,7 +64,10 @@ class StartScreen extends StatelessWidget {
                 Row(
                   spacing: w(8),
                   children: [
-                    ElevatedButton(onPressed: () {}, child: Text("English")),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text(AppLocalizations.of(context)!.english),
+                    ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.inputsColorLight,
@@ -75,7 +79,7 @@ class StartScreen extends StatelessWidget {
                         textStyle: AppText.text14Regular,
                       ),
                       onPressed: () {},
-                      child: Text("Arabic"),
+                      child: Text(AppLocalizations.of(context)!.arabic),
                     ),
                   ],
                 ),
@@ -85,7 +89,7 @@ class StartScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Theme",
+                  AppLocalizations.of(context)!.theme,
                   style:
                       Theme.of(context).appBarTheme.backgroundColor ==
                           AppColors.backgroundColorLight
@@ -131,7 +135,10 @@ class StartScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
-                child: Text("Get Started", style: AppText.text20Medium),
+                child: Text(
+                  AppLocalizations.of(context)!.getstarted,
+                  style: AppText.text20Medium,
+                ),
               ),
             ),
           ],

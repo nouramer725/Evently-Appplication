@@ -98,11 +98,125 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
-  /// No description provided for @hello.
+  /// No description provided for @darkmode.
   ///
   /// In en, this message translates to:
-  /// **'Hello World!'**
-  String get hello;
+  /// **'Dark Mode'**
+  String get darkmode;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @favorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get favorite;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @title1.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Events That Inspire You'**
+  String get title1;
+
+  /// No description provided for @title2.
+  ///
+  /// In en, this message translates to:
+  /// **'Effortless Event Planning'**
+  String get title2;
+
+  /// No description provided for @title3.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect & Share Moments'**
+  String get title3;
+
+  /// No description provided for @title4.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalize Your Experience'**
+  String get title4;
+
+  /// No description provided for @text1.
+  ///
+  /// In en, this message translates to:
+  /// **'Dive into a world of events crafted to fit your unique interests. Whether you\'re into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.'**
+  String get text1;
+
+  /// No description provided for @text2.
+  ///
+  /// In en, this message translates to:
+  /// **'Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.'**
+  String get text2;
+
+  /// No description provided for @text3.
+  ///
+  /// In en, this message translates to:
+  /// **'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.'**
+  String get text3;
+
+  /// No description provided for @text4.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.'**
+  String get text4;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @arabic.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic'**
+  String get arabic;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @getstarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get getstarted;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
 }
 
 class _AppLocalizationsDelegate

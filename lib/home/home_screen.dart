@@ -1,6 +1,7 @@
 import 'package:evently_app/home/tabs/favourite_tab_screen.dart';
 import 'package:evently_app/home/tabs/home_tab_screen.dart';
 import 'package:evently_app/home/tabs/profile/profile_screen.dart';
+import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           buildBottomNavigationBarItem(
             index: 0,
-            label: 'Home',
+            label: AppLocalizations.of(context)!.home,
             outlinedIcon: AppAssets.homeIconUnSelected,
             filledIcon:
                 Theme.of(context).appBarTheme.backgroundColor ==
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           buildBottomNavigationBarItem(
             index: 1,
-            label: 'Favorite',
+            label: AppLocalizations.of(context)!.favorite,
             outlinedIcon: AppAssets.favouriteIconUnSelected,
             filledIcon:
                 Theme.of(context).appBarTheme.backgroundColor ==
@@ -58,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           buildBottomNavigationBarItem(
             index: 2,
-            label: 'Profile',
+            label: AppLocalizations.of(context)!.profile,
             outlinedIcon: AppAssets.profileIconUnSelected,
             filledIcon:
                 Theme.of(context).appBarTheme.backgroundColor ==
