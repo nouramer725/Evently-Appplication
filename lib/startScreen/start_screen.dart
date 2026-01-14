@@ -63,13 +63,15 @@ class StartScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    AppLocalizations.of(context)!.language,
-                    style:
-                        Theme.of(context).appBarTheme.backgroundColor ==
-                            AppColors.backgroundColorLight
-                        ? AppText.text18Medium
-                        : AppText.text18MediumDark,
+                  Expanded(
+                    child: Text(
+                      AppLocalizations.of(context)!.language,
+                      style:
+                          Theme.of(context).appBarTheme.backgroundColor ==
+                              AppColors.backgroundColorLight
+                          ? AppText.text18Medium
+                          : AppText.text18MediumDark,
+                    ),
                   ),
                   Row(
                     spacing: w(8),
@@ -158,6 +160,7 @@ class StartScreen extends StatelessWidget {
                     vertical: h(9),
                     horizontal: w(16),
                   ),
+                  margin: EdgeInsets.symmetric(vertical: h(9)),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color:

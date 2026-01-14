@@ -16,6 +16,14 @@ class AppText {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle get text20BoldDark => GoogleFonts.poppins(
+    color: AppColors.mainColorDark,
+    fontSize: sp(20),
+    fontWeight: FontWeight.bold,
+    height: 1.5,
+  );
+
+
   static TextStyle get text18Medium => GoogleFonts.poppins(
     color: AppColors.mainColorLight,
     fontSize: sp(20),

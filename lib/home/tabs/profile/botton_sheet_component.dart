@@ -47,21 +47,25 @@ class BottonSheetComponent extends StatelessWidget {
 
   Widget getSelectedRow(String text, BuildContext context) {
     return ListTile(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(w(12)),
-      ),
-      tileColor: Theme.of(context).brightness == Brightness.light
-          ? AppColors.mainColorLight.withOpacity(0.1)
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(w(12))),
+      tileColor:
+          Theme.of(context).appBarTheme.backgroundColor ==
+              AppColors.backgroundColorLight
+          ? AppColors.mainColorLight.withValues(alpha: 0.1)
           : AppColors.mainColorDark.withOpacity(0.2),
       title: Text(
         text,
-        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-          fontWeight: FontWeight.bold,
-        ),
+        style:
+            Theme.of(context).appBarTheme.backgroundColor ==
+                AppColors.backgroundColorLight
+            ? AppText.text18Medium
+            : AppText.text20BoldDark,
       ),
       trailing: Icon(
         Icons.check_circle,
-        color: Theme.of(context).brightness == Brightness.light
+        color:
+            Theme.of(context).appBarTheme.backgroundColor ==
+                AppColors.backgroundColorLight
             ? AppColors.mainColorLight
             : AppColors.mainColorDark,
         size: w(28),
@@ -71,11 +75,15 @@ class BottonSheetComponent extends StatelessWidget {
 
   Widget getUnSelectedRow(String text, BuildContext context) {
     return ListTile(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(w(12)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(w(12))),
+      title: Text(
+        text,
+        style:
+            Theme.of(context).appBarTheme.backgroundColor ==
+                AppColors.backgroundColorLight
+            ? AppText.text20SemiBold
+            : AppText.text20SemiBoldDark,
       ),
-      title: Text(text, style: Theme.of(context).textTheme.titleMedium),
     );
-
-}
+  }
 }
