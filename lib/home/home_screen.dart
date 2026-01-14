@@ -1,5 +1,5 @@
-import 'package:evently_app/home/tabs/favourite_tab_screen.dart';
-import 'package:evently_app/home/tabs/home_tab_screen.dart';
+import 'package:evently_app/home/tabs/favotite/favourite_tab_screen.dart';
+import 'package:evently_app/home/tabs/home/home_tab_screen.dart';
 import 'package:evently_app/home/tabs/profile/profile_screen.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/utils/app_assets.dart';
