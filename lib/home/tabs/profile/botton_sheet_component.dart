@@ -46,37 +46,36 @@ class BottonSheetComponent extends StatelessWidget {
   }
 
   Widget getSelectedRow(String text, BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          text,
-          style:
-              Theme.of(context).appBarTheme.backgroundColor ==
-                  AppColors.backgroundColorLight
-              ? AppText.text20SemiBold
-              : AppText.text20SemiBoldDark,
+    return ListTile(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(w(12)),
+      ),
+      tileColor: Theme.of(context).brightness == Brightness.light
+          ? AppColors.mainColorLight.withOpacity(0.1)
+          : AppColors.mainColorDark.withOpacity(0.2),
+      title: Text(
+        text,
+        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+          fontWeight: FontWeight.bold,
         ),
-        Icon(
-          Icons.check,
-          color:
-              Theme.of(context).appBarTheme.backgroundColor ==
-                  AppColors.backgroundColorLight
-              ? AppColors.mainColorLight
-              : AppColors.mainColorDark,
-        ),
-      ],
+      ),
+      trailing: Icon(
+        Icons.check_circle,
+        color: Theme.of(context).brightness == Brightness.light
+            ? AppColors.mainColorLight
+            : AppColors.mainColorDark,
+        size: w(28),
+      ),
     );
   }
 
   Widget getUnSelectedRow(String text, BuildContext context) {
-    return Text(
-      text,
-      style:
-          Theme.of(context).appBarTheme.backgroundColor ==
-              AppColors.backgroundColorLight
-          ? AppText.text20SemiBold
-          : AppText.text20SemiBoldDark,
+    return ListTile(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(w(12)),
+      ),
+      title: Text(text, style: Theme.of(context).textTheme.titleMedium),
     );
-  }
+
+}
 }

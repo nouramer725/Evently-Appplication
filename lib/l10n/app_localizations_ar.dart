@@ -71,4 +71,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get next => 'التالي';
+
+  @override
+  String get letStart => 'هيا نبدأ';
 }

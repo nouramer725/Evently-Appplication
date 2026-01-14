@@ -23,7 +23,7 @@ class AppText {
   );
 
   static TextStyle get text18MediumDark => GoogleFonts.poppins(
-    color: AppColors.mainColorDark,
+    color: AppColors.inputsColorLight,
     fontSize: sp(20),
     fontWeight: FontWeight.w600,
   );
@@ -40,72 +40,94 @@ class AppText {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle get text14SemiBoldDark => GoogleFonts.poppins(
+    color: AppColors.mainTextColorDark,
+    fontSize: sp(14),
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle get text14UnSelected => GoogleFonts.poppins(
+    color: AppColors.mainColorLight,
+    fontSize: sp(14),
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle get text14UnSelectedDark => GoogleFonts.poppins(
+    color: AppColors.inputsColorLight,
+    fontSize: sp(14),
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle get text14SemiBoldWhite => GoogleFonts.poppins(
+    color: AppColors.inputsColorLight,
+    fontSize: sp(14),
+    fontWeight: FontWeight.w700,
+  );
 
   static TextStyle get text16Regular => GoogleFonts.poppins(
     color: AppColors.secTextColorLight,
     fontSize: sp(16),
     fontWeight: FontWeight.w400,
-    height: 1.5
+    height: 1.5,
   );
 
   static TextStyle get text14Regular => GoogleFonts.poppins(
-      color: AppColors.secTextColorLight,
-      fontSize: sp(14),
-      fontWeight: FontWeight.w400,
-      height: 1.5
+    color: AppColors.secTextColorLight,
+    fontSize: sp(14),
+    fontWeight: FontWeight.w400,
+    height: 1.5,
   );
 
   static TextStyle get text14RegularDark => GoogleFonts.poppins(
-      color: AppColors.secTextColorDark,
-      fontSize: sp(14),
-      fontWeight: FontWeight.w400,
-      height: 1.5
+    color: AppColors.secTextColorDark,
+    fontSize: sp(14),
+    fontWeight: FontWeight.w400,
+    height: 1.5,
   );
 
   static TextStyle get text12Regular => GoogleFonts.poppins(
-      color: AppColors.mainColorLight,
-      fontSize: sp(12),
-      fontWeight: FontWeight.w400,
-      height: 1.5
+    color: AppColors.mainColorLight,
+    fontSize: sp(12),
+    fontWeight: FontWeight.w400,
+    height: 1.5,
   );
   static TextStyle get text12RegularDark => GoogleFonts.poppins(
-      color: AppColors.mainColorDark,
-      fontSize: sp(12),
-      fontWeight: FontWeight.w400,
-      height: 1.5
+    color: AppColors.mainColorDark,
+    fontSize: sp(12),
+    fontWeight: FontWeight.w400,
+    height: 1.5,
   );
   static TextStyle get text12RegularUnSelected => GoogleFonts.poppins(
-      color: AppColors.disableColorLight,
-      fontSize: sp(12),
-      fontWeight: FontWeight.w400,
-      height: 1.5
+    color: AppColors.disableColorLight,
+    fontSize: sp(12),
+    fontWeight: FontWeight.w400,
+    height: 1.5,
   );
   static TextStyle get text12RegularUnSelectedDark => GoogleFonts.poppins(
-      color: AppColors.disableColorDark,
-      fontSize: sp(12),
-      fontWeight: FontWeight.w400,
-      height: 1.5
+    color: AppColors.disableColorDark,
+    fontSize: sp(12),
+    fontWeight: FontWeight.w400,
+    height: 1.5,
   );
 
   static TextStyle get text16RegularDark => GoogleFonts.poppins(
-      color: AppColors.secTextColorDark,
-      fontSize: sp(16),
-      fontWeight: FontWeight.w400,
-      height: 1.5
+    color: AppColors.secTextColorDark,
+    fontSize: sp(16),
+    fontWeight: FontWeight.w400,
+    height: 1.5,
   );
 
   static TextStyle get text16MediumDark => GoogleFonts.poppins(
-      color: AppColors.mainTextColorDark,
-      fontSize: sp(16),
-      fontWeight: FontWeight.w500,
-      height: 1.5
+    color: AppColors.mainTextColorDark,
+    fontSize: sp(16),
+    fontWeight: FontWeight.w500,
+    height: 1.5,
   );
 
   static TextStyle get text16Medium => GoogleFonts.poppins(
-      color: AppColors.mainTextColorLight,
-      fontSize: sp(16),
-      fontWeight: FontWeight.w500,
-      height: 1.5
+    color: AppColors.mainTextColorLight,
+    fontSize: sp(16),
+    fontWeight: FontWeight.w500,
+    height: 1.5,
   );
-
 }

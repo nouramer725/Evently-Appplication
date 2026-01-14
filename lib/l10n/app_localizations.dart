@@ -217,6 +217,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Next'**
   String get next;
+
+  /// No description provided for @letStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s Start'**
+  String get letStart;
 }
 
 class _AppLocalizationsDelegate

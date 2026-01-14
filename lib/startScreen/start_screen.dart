@@ -1,5 +1,9 @@
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/provider/app_theme_provider.dart';
+import 'package:evently_app/startScreen/selected_Button.dart';
+import 'package:evently_app/startScreen/selected_button_theme.dart';
+import 'package:evently_app/startScreen/un_selected_button_theme.dart';
+import 'package:evently_app/startScreen/unselected_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../provider/app_language_provider.dart';
@@ -30,7 +34,7 @@ class StartScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: h(15),
+            spacing: h(16),
             children: [
               Image.asset(
                 Theme.of(context).appBarTheme.backgroundColor ==
@@ -71,27 +75,32 @@ class StartScreen extends StatelessWidget {
                     spacing: w(8),
                     children: [
                       languageProvider.language == null
-                          ? selectedButton(
-                              AppLocalizations.of(context)!.english,
-                              () => languageProvider.changeLanguage('en'),
+                          ? SelectedButton(
+                              text: AppLocalizations.of(context)!.english,
+                              onPressed: () =>
+                                  languageProvider.changeLanguage('en'),
                             )
                           : languageProvider.language == 'en'
-                          ? selectedButton(
-                              AppLocalizations.of(context)!.english,
-                              () => languageProvider.changeLanguage('en'),
+                          ? SelectedButton(
+                              text: AppLocalizations.of(context)!.english,
+                              onPressed: () =>
+                                  languageProvider.changeLanguage('en'),
                             )
-                          : unSelectedButton(
-                              AppLocalizations.of(context)!.english,
-                              () => languageProvider.changeLanguage('en'),
+                          : UnselectedButton(
+                              text: AppLocalizations.of(context)!.english,
+                              onPressed: () =>
+                                  languageProvider.changeLanguage('en'),
                             ),
                       languageProvider.language == 'ar'
-                          ? selectedButton(
-                              AppLocalizations.of(context)!.arabic,
-                              () => languageProvider.changeLanguage('ar'),
+                          ? SelectedButton(
+                              text: AppLocalizations.of(context)!.arabic,
+                              onPressed: () =>
+                                  languageProvider.changeLanguage('ar'),
                             )
-                          : unSelectedButton(
-                              AppLocalizations.of(context)!.arabic,
-                              () => languageProvider.changeLanguage('ar'),
+                          : UnselectedButton(
+                              text: AppLocalizations.of(context)!.arabic,
+                              onPressed: () =>
+                                  languageProvider.changeLanguage('ar'),
                             ),
                     ],
                   ),
@@ -111,47 +120,54 @@ class StartScreen extends StatelessWidget {
                   Row(
                     spacing: w(8),
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          // themeProvider.changeTheme(ThemeMode.light);
-                        },
-                        child: Icon(Icons.light_mode, size: w(24)),
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.inputsColorLight,
-                          foregroundColor: AppColors.mainColorLight,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(color: AppColors.strokeColorLight),
-                          ),
-                        ),
-                        onPressed: () {
-                          // themeProvider.changeTheme(ThemeMode.dark);
-                        },
-                        child: Icon(Icons.dark_mode_outlined, size: w(24)),
-                      ),
+                      themeProvider.appTheme == ThemeMode.light
+                          ? SelectedButtonTheme(
+                              icon: Icons.light_mode,
+                              onPressed: () =>
+                                  themeProvider.changeTheme(ThemeMode.light),
+                            )
+                          : UnSelectedButtonTheme(
+                              icon: Icons.light_mode_outlined,
+                              onPressed: () =>
+                                  themeProvider.changeTheme(ThemeMode.light),
+                            ),
+
+                      themeProvider.appTheme == ThemeMode.dark
+                          ? SelectedButtonTheme(
+                              icon: Icons.dark_mode,
+                              onPressed: () =>
+                                  themeProvider.changeTheme(ThemeMode.dark),
+                            )
+                          : UnSelectedButtonTheme(
+                              icon: Icons.dark_mode_outlined,
+                              onPressed: () =>
+                                  themeProvider.changeTheme(ThemeMode.dark),
+                            ),
                     ],
                   ),
                 ],
               ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(
-                      context,
-                      AppRoutes.onBoardingScreenName,
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: h(9)),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.onBoardingScreenName);
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(
+                    vertical: h(9),
+                    horizontal: w(16),
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color:
+                        Theme.of(context).appBarTheme.backgroundColor ==
+                            AppColors.backgroundColorLight
+                        ? AppColors.mainColorLight
+                        : AppColors.mainColorDark,
                   ),
                   child: Text(
-                    AppLocalizations.of(context)!.getstarted,
+                    AppLocalizations.of(context)!.letStart,
                     style: AppText.text20Medium,
                   ),
                 ),
@@ -160,25 +176,6 @@ class StartScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Widget selectedButton(String text, Function() onPressed) {
-    return ElevatedButton(onPressed: onPressed, child: Text(text));
-  }
-
-  Widget unSelectedButton(String text, Function() onPressed) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.inputsColorLight,
-        foregroundColor: AppColors.mainColorLight,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: AppColors.strokeColorLight),
-        ),
-      ),
-      onPressed: onPressed,
-      child: Text(text),
     );
   }
 }

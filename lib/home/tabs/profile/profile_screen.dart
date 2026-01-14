@@ -55,12 +55,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ProfileWidget(
               text: AppLocalizations.of(context)!.darkmode,
               icon: Switch(
-                value: isSwitched,
+                value: themeProvider.appTheme == ThemeMode.dark,
                 onChanged: (value) {
                   themeProvider.changeTheme(
-                    isSwitched ? ThemeMode.dark : ThemeMode.light,
+                    value ? ThemeMode.dark : ThemeMode.light,
                   );
-                  setState(() {});
                 },
                 activeThumbColor:
                     Theme.of(context).appBarTheme.backgroundColor ==
