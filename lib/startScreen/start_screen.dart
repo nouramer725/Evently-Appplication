@@ -20,6 +20,29 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<AppLanguageProvider>(context);
     var themeProvider = Provider.of<AppThemeProvider>(context);
+
+    Locale systemLocale = Localizations.localeOf(context);
+    bool systemIsArabic = systemLocale.languageCode == 'ar';
+
+    bool isSelectedEnglish =
+        languageProvider.language == 'en' ||
+        (languageProvider.language == null && !systemIsArabic);
+
+    bool isSelectedArabic =
+        languageProvider.language == 'ar' ||
+        (languageProvider.language == null && systemIsArabic);
+
+    final brightness = MediaQuery.of(context).platformBrightness;
+    final bool systemIsDark = brightness == Brightness.dark;
+
+    bool isSelectedLight =
+        themeProvider.appTheme == ThemeMode.light ||
+        (themeProvider.appTheme == ThemeMode.system && !systemIsDark);
+
+    bool isSelectedDark =
+        themeProvider.appTheme == ThemeMode.dark ||
+        (themeProvider.appTheme == ThemeMode.system && systemIsDark);
+
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
@@ -76,13 +99,7 @@ class StartScreen extends StatelessWidget {
                   Row(
                     spacing: w(8),
                     children: [
-                      languageProvider.language == null
-                          ? SelectedButton(
-                              text: AppLocalizations.of(context)!.english,
-                              onPressed: () =>
-                                  languageProvider.changeLanguage('en'),
-                            )
-                          : languageProvider.language == 'en'
+                      isSelectedEnglish
                           ? SelectedButton(
                               text: AppLocalizations.of(context)!.english,
                               onPressed: () =>
@@ -93,7 +110,8 @@ class StartScreen extends StatelessWidget {
                               onPressed: () =>
                                   languageProvider.changeLanguage('en'),
                             ),
-                      languageProvider.language == 'ar'
+
+                      isSelectedArabic
                           ? SelectedButton(
                               text: AppLocalizations.of(context)!.arabic,
                               onPressed: () =>
@@ -122,7 +140,7 @@ class StartScreen extends StatelessWidget {
                   Row(
                     spacing: w(8),
                     children: [
-                      themeProvider.appTheme == ThemeMode.light
+                      isSelectedLight
                           ? SelectedButtonTheme(
                               icon: Icons.light_mode,
                               onPressed: () =>
@@ -134,7 +152,7 @@ class StartScreen extends StatelessWidget {
                                   themeProvider.changeTheme(ThemeMode.light),
                             ),
 
-                      themeProvider.appTheme == ThemeMode.dark
+                      isSelectedDark
                           ? SelectedButtonTheme(
                               icon: Icons.dark_mode,
                               onPressed: () =>

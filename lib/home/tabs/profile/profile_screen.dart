@@ -26,6 +26,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<AppLanguageProvider>(context);
     var themeProvider = Provider.of<AppThemeProvider>(context);
+
+    final brightness = MediaQuery.of(context).platformBrightness;
+    final bool systemIsDark = brightness == Brightness.dark;
+
+    bool switchValue =
+        themeProvider.appTheme == ThemeMode.dark ||
+        (themeProvider.appTheme == ThemeMode.system && systemIsDark);
+
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: w(16), vertical: h(16)),
@@ -55,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ProfileWidget(
               text: AppLocalizations.of(context)!.darkmode,
               icon: Switch(
-                value: themeProvider.appTheme == ThemeMode.dark,
+                value: switchValue,
                 onChanged: (value) {
                   themeProvider.changeTheme(
                     value ? ThemeMode.dark : ThemeMode.light,
