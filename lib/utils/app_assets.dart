@@ -48,8 +48,5 @@ class AppAssets {
       'assets/images/user_unselected.png';
   static const String logOutIcon = 'assets/images/logout.png';
 
-  static const String allIcon = 'assets/images/all_icon.png';
-  static const String sportIcon = 'assets/images/sport_icon.png';
-  static const String birthdayIcon = 'assets/images/birthday_icon.png';
   static const String googleIcon = 'assets/images/google_icon.png';
 }
