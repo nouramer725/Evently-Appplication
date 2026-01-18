@@ -46,19 +46,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Text(
               "John Doe",
-              style:
-                  Theme.of(context).appBarTheme.backgroundColor ==
-                      AppColors.backgroundColorLight
-                  ? AppText.text20SemiBold
-                  : AppText.text20SemiBoldDark,
+              style: themeProvider.isDarkTheme()
+                  ? AppText.semiBoldText(color: AppColors.white, fontSize: 20)
+                  : AppText.semiBoldText(
+                      color: AppColors.mainTextColorLight,
+                      fontSize: 20,
+                    ),
             ),
             Text(
               "johnsafwat.route@gmail.com",
-              style:
-                  Theme.of(context).appBarTheme.backgroundColor ==
-                      AppColors.backgroundColorLight
-                  ? AppText.text14Regular
-                  : AppText.text14RegularDark,
+              style: themeProvider.isDarkTheme()
+                  ? AppText.regularText(
+                      color: AppColors.secTextColorDark,
+                      fontSize: 14,
+                    )
+                  : AppText.regularText(
+                      color: AppColors.secTextColorLight,
+                      fontSize: 14,
+                    ),
             ),
             ProfileWidget(
               text: AppLocalizations.of(context)!.darkmode,
@@ -69,16 +74,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     value ? ThemeMode.dark : ThemeMode.light,
                   );
                 },
-                activeThumbColor:
-                    Theme.of(context).appBarTheme.backgroundColor ==
-                        AppColors.backgroundColorLight
-                    ? AppColors.mainColorLight
-                    : AppColors.mainColorDark,
-                inactiveThumbColor:
-                    Theme.of(context).appBarTheme.backgroundColor ==
-                        AppColors.backgroundColorLight
-                    ? AppColors.disableColorLight
-                    : AppColors.disableColorDark,
+                activeThumbColor: themeProvider.isDarkTheme()
+                    ? AppColors.mainColorDark
+                    : AppColors.mainColorLight,
+                inactiveThumbColor: themeProvider.isDarkTheme()
+                    ? AppColors.disableColorDark
+                    : AppColors.disableColorLight,
               ),
             ),
             ProfileWidget(
@@ -89,11 +90,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   : AppLocalizations.of(context)!.arabic,
               icon: Icon(
                 Icons.arrow_forward_ios,
-                color:
-                    Theme.of(context).appBarTheme.backgroundColor ==
-                        AppColors.backgroundColorLight
-                    ? AppColors.mainColorLight
-                    : AppColors.mainColorDark,
+                color: themeProvider.isDarkTheme()
+                    ? AppColors.mainColorDark
+                    : AppColors.mainColorLight,
               ),
               onTap: () {
                 showModalBottomSheet(

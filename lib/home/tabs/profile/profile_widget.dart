@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../provider/app_theme_provider.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_text.dart';
 import '../../../utils/responsive.dart';
@@ -19,21 +21,18 @@ class ProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<AppThemeProvider>(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: w(16), vertical: h(12)),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color:
-            Theme.of(context).appBarTheme.backgroundColor ==
-                AppColors.backgroundColorLight
-            ? AppColors.inputsColorLight
-            : AppColors.inputsColorDark,
+        color: themeProvider.isDarkTheme()
+            ? AppColors.inputsColorDark
+            : AppColors.inputsColorLight,
         border: Border.all(
-          color:
-              Theme.of(context).appBarTheme.backgroundColor ==
-                  AppColors.backgroundColorLight
-              ? AppColors.strokeColorLight
-              : AppColors.strokeColorDark,
+          color: themeProvider.isDarkTheme()
+              ? AppColors.strokeColorDark
+              : AppColors.strokeColorLight,
         ),
       ),
       child: Row(
@@ -41,11 +40,12 @@ class ProfileWidget extends StatelessWidget {
         children: [
           Text(
             text,
-            style:
-                Theme.of(context).appBarTheme.backgroundColor ==
-                    AppColors.backgroundColorLight
-                ? AppText.text16Medium
-                : AppText.text16MediumDark,
+            style: themeProvider.isDarkTheme()
+                ? AppText.mediumText(color: AppColors.white, fontSize: 16)
+                : AppText.mediumText(
+                    color: AppColors.mainTextColorLight,
+                    fontSize: 16,
+                  ),
           ),
           InkWell(onTap: onTap, child: icon),
         ],

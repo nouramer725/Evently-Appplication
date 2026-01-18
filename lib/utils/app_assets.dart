@@ -1,8 +1,7 @@
 class AppAssets {
   static const String branding = 'assets/images/branding.png';
   static const String splash = 'assets/images/splash.png';
-  static const String eventlyLogo =
-      'assets/images/Blue White Minimal Modern Simple Bold Business Mag Logo 3.png';
+  static const String eventlyLogo = 'assets/images/evently.png';
   static const String eventlyLogoDark = 'assets/images/evently_dark.png';
   static const String splashDark = 'assets/images/splash_dark.png';
   static const String brandingDark = 'assets/images/branding_dark.png';
@@ -48,4 +47,9 @@ class AppAssets {
   static const String profileIconUnSelected =
       'assets/images/user_unselected.png';
   static const String logOutIcon = 'assets/images/logout.png';
+
+  static const String allIcon = 'assets/images/all_icon.png';
+  static const String sportIcon = 'assets/images/sport_icon.png';
+  static const String birthdayIcon = 'assets/images/birthday_icon.png';
+  static const String googleIcon = 'assets/images/google_icon.png';
 }

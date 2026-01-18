@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
+import '../provider/app_theme_provider.dart';
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_routes.dart';
@@ -20,6 +22,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<AppThemeProvider>(context);
     SizeConfig.init(context);
 
     final pages = [
@@ -47,20 +50,40 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       appBar: AppBar(
         leading: currentPage == 0
             ? const SizedBox()
-            : IconButton(
-                icon: Icon(Icons.arrow_back_ios),
-                onPressed: () {
-                  controller.previousPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeOut,
-                  );
-                },
+            : InkWell(
+                onTap: () => controller.previousPage(
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeOut,
+                ),
+                child: Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: w(5),
+                    vertical: h(5),
+                  ),
+                  decoration: BoxDecoration(
+                    color: themeProvider.isDarkTheme()
+                        ? AppColors.transparentColor
+                        : AppColors.white,
+                    border: Border.all(
+                      color: themeProvider.isDarkTheme()
+                          ? AppColors.strokeColorDark
+                          : AppColors.strokeColorLight,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Icon(
+                    Icons.arrow_back_ios_sharp,
+                    color: themeProvider.isDarkTheme()
+                        ? AppColors.white
+                        : AppColors.mainColorLight,
+                  ),
+                ),
               ),
         title: Image.asset(
-          Theme.of(context).appBarTheme.backgroundColor ==
-                  AppColors.backgroundColorLight
-              ? AppAssets.eventlyLogo
-              : AppAssets.eventlyLogoDark,
+          themeProvider.isDarkTheme()
+              ? AppAssets.eventlyLogoDark
+              : AppAssets.eventlyLogo,
         ),
         actions: [
           currentPage == pages.length - 1
@@ -74,7 +97,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
         ],
       ),
-
       body: Column(
         children: [
           Expanded(
@@ -85,6 +107,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               itemBuilder: (context, index) {
                 final page = pages[index];
                 return buildPage(
+                  themeProvider: themeProvider,
                   totalPages: pages.length,
                   imageLight: page["imageLight"]!,
                   imageDark: page["imageDark"]!,
@@ -122,7 +145,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   currentPage == pages.length - 1
                       ? AppLocalizations.of(context)!.getstarted
                       : AppLocalizations.of(context)!.next,
-                  style: AppText.text20Medium,
+                  style: AppText.mediumText(
+                    color: AppColors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
@@ -138,6 +164,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     required String title,
     required String text,
     required int totalPages,
+    required AppThemeProvider themeProvider,
   }) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: w(16)),
@@ -147,10 +174,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              Theme.of(context).appBarTheme.backgroundColor ==
-                      AppColors.backgroundColorLight
-                  ? imageLight
-                  : imageDark,
+              themeProvider.isDarkTheme() ? imageDark : imageLight,
               height: h(343),
               fit: BoxFit.cover,
             ),
@@ -164,15 +188,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   width: currentPage == index ? 25 : 9,
                   height: 8,
                   decoration: BoxDecoration(
-                    color:
-                        Theme.of(context).appBarTheme.backgroundColor ==
-                            AppColors.backgroundColorLight
+                    color: themeProvider.isDarkTheme()
                         ? currentPage == index
-                              ? AppColors.mainColorLight
-                              : AppColors.disableColorLight
+                              ? AppColors.mainColorDark
+                              : AppColors.mainTextColorDark
                         : currentPage == index
-                        ? AppColors.mainColorDark
-                        : AppColors.mainTextColorDark,
+                        ? AppColors.mainColorLight
+                        : AppColors.disableColorLight,
                     borderRadius: BorderRadius.circular(50),
                   ),
                 ),
@@ -180,19 +202,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             Text(
               title,
-              style:
-                  Theme.of(context).appBarTheme.backgroundColor ==
-                      AppColors.backgroundColorLight
-                  ? AppText.text20SemiBold
-                  : AppText.text20SemiBoldDark,
+              style: themeProvider.isDarkTheme()
+                  ? AppText.semiBoldText(color: AppColors.white, fontSize: 20)
+                  : AppText.semiBoldText(
+                      color: AppColors.mainTextColorLight,
+                      fontSize: 20,
+                    ),
             ),
             Text(
               text,
-              style:
-                  Theme.of(context).appBarTheme.backgroundColor ==
-                      AppColors.backgroundColorLight
-                  ? AppText.text16Regular
-                  : AppText.text16RegularDark,
+              style: themeProvider.isDarkTheme()
+                  ? AppText.regularText(
+                      color: AppColors.secTextColorDark,
+                      fontSize: 16,
+                    )
+                  : AppText.regularText(
+                      color: AppColors.secTextColorLight,
+                      fontSize: 16,
+                    ),
             ),
           ],
         ),

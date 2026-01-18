@@ -1,10 +1,10 @@
+import 'package:evently_app/home/tabs/profile/selected_row_widget.dart';
+import 'package:evently_app/home/tabs/profile/un_selected_row_widget.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
-import 'package:evently_app/utils/app_text.dart';
 import 'package:evently_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../provider/app_language_provider.dart';
-import '../../../utils/app_colors.dart';
 
 class BottonSheetComponent extends StatelessWidget {
   const BottonSheetComponent({super.key});
@@ -23,10 +23,9 @@ class BottonSheetComponent extends StatelessWidget {
               languageProvider.changeLanguage('ar');
             },
             child: languageProvider.appLocal == 'ar'
-                ? getSelectedRow(AppLocalizations.of(context)!.arabic, context)
-                : getUnSelectedRow(
-                    AppLocalizations.of(context)!.arabic,
-                    context,
+                ? SelectedRowWidget(text: AppLocalizations.of(context)!.arabic)
+                : UnSelectedRowWidget(
+                    text: AppLocalizations.of(context)!.arabic,
                   ),
           ),
           InkWell(
@@ -34,55 +33,12 @@ class BottonSheetComponent extends StatelessWidget {
               languageProvider.changeLanguage('en');
             },
             child: languageProvider.appLocal == 'en'
-                ? getSelectedRow(AppLocalizations.of(context)!.english, context)
-                : getUnSelectedRow(
-                    AppLocalizations.of(context)!.english,
-                    context,
+                ? SelectedRowWidget(text: AppLocalizations.of(context)!.english)
+                : UnSelectedRowWidget(
+                    text: AppLocalizations.of(context)!.english,
                   ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget getSelectedRow(String text, BuildContext context) {
-    return ListTile(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(w(12))),
-      tileColor:
-          Theme.of(context).appBarTheme.backgroundColor ==
-              AppColors.backgroundColorLight
-          ? AppColors.mainColorLight.withValues(alpha: 0.1)
-          : AppColors.mainColorDark.withOpacity(0.2),
-      title: Text(
-        text,
-        style:
-            Theme.of(context).appBarTheme.backgroundColor ==
-                AppColors.backgroundColorLight
-            ? AppText.text18Medium
-            : AppText.text20BoldDark,
-      ),
-      trailing: Icon(
-        Icons.check_circle,
-        color:
-            Theme.of(context).appBarTheme.backgroundColor ==
-                AppColors.backgroundColorLight
-            ? AppColors.mainColorLight
-            : AppColors.mainColorDark,
-        size: w(28),
-      ),
-    );
-  }
-
-  Widget getUnSelectedRow(String text, BuildContext context) {
-    return ListTile(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(w(12))),
-      title: Text(
-        text,
-        style:
-            Theme.of(context).appBarTheme.backgroundColor ==
-                AppColors.backgroundColorLight
-            ? AppText.text20SemiBold
-            : AppText.text20SemiBoldDark,
       ),
     );
   }

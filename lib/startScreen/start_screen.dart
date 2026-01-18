@@ -46,10 +46,9 @@ class StartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
-          Theme.of(context).appBarTheme.backgroundColor ==
-                  AppColors.backgroundColorLight
-              ? AppAssets.eventlyLogo
-              : AppAssets.eventlyLogoDark,
+          themeProvider.isDarkTheme()
+              ? AppAssets.eventlyLogoDark
+              : AppAssets.eventlyLogo,
         ),
       ),
       body: Padding(
@@ -60,111 +59,115 @@ class StartScreen extends StatelessWidget {
             spacing: h(16),
             children: [
               Image.asset(
-                Theme.of(context).appBarTheme.backgroundColor ==
-                        AppColors.backgroundColorLight
-                    ? AppAssets.startScreen
-                    : AppAssets.startScreenDark,
+                themeProvider.isDarkTheme()
+                    ? AppAssets.startScreenDark
+                    : AppAssets.startScreen,
                 fit: BoxFit.cover,
                 height: h(343),
               ),
               Text(
                 AppLocalizations.of(context)!.title4,
-                style:
-                    Theme.of(context).appBarTheme.backgroundColor ==
-                        AppColors.backgroundColorLight
-                    ? AppText.text20SemiBold
-                    : AppText.text20SemiBoldDark,
+                style: themeProvider.isDarkTheme()
+                    ? AppText.semiBoldText(color: AppColors.white, fontSize: 20)
+                    : AppText.semiBoldText(
+                        color: AppColors.mainTextColorLight,
+                        fontSize: 20,
+                      ),
               ),
               Text(
                 AppLocalizations.of(context)!.text4,
-                style:
-                    Theme.of(context).appBarTheme.backgroundColor ==
-                        AppColors.backgroundColorLight
-                    ? AppText.text16Regular
-                    : AppText.text16RegularDark,
+                style: themeProvider.isDarkTheme()
+                    ? AppText.regularText(
+                        color: AppColors.secTextColorDark,
+                        fontSize: 16,
+                      )
+                    : AppText.regularText(
+                        color: AppColors.secTextColorLight,
+                        fontSize: 16,
+                      ),
               ),
               Row(
+                spacing: w(5),
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    child: Text(
-                      AppLocalizations.of(context)!.language,
-                      style:
-                          Theme.of(context).appBarTheme.backgroundColor ==
-                              AppColors.backgroundColorLight
-                          ? AppText.text18Medium
-                          : AppText.text18MediumDark,
-                    ),
+                  Text(
+                    AppLocalizations.of(context)!.language,
+                    style: themeProvider.isDarkTheme()
+                        ? AppText.mediumText(
+                            color: AppColors.white,
+                            fontSize: 18,
+                          )
+                        : AppText.mediumText(
+                            color: AppColors.mainColorLight,
+                            fontSize: 18,
+                          ),
                   ),
-                  Row(
-                    spacing: w(8),
-                    children: [
-                      isSelectedEnglish
-                          ? SelectedButton(
-                              text: AppLocalizations.of(context)!.english,
-                              onPressed: () =>
-                                  languageProvider.changeLanguage('en'),
-                            )
-                          : UnselectedButton(
-                              text: AppLocalizations.of(context)!.english,
-                              onPressed: () =>
-                                  languageProvider.changeLanguage('en'),
-                            ),
+                  Spacer(),
+                  isSelectedEnglish
+                      ? SelectedButton(
+                          text: AppLocalizations.of(context)!.english,
+                          onPressed: () =>
+                              languageProvider.changeLanguage('en'),
+                        )
+                      : UnselectedButton(
+                          text: AppLocalizations.of(context)!.english,
+                          onPressed: () =>
+                              languageProvider.changeLanguage('en'),
+                        ),
 
-                      isSelectedArabic
-                          ? SelectedButton(
-                              text: AppLocalizations.of(context)!.arabic,
-                              onPressed: () =>
-                                  languageProvider.changeLanguage('ar'),
-                            )
-                          : UnselectedButton(
-                              text: AppLocalizations.of(context)!.arabic,
-                              onPressed: () =>
-                                  languageProvider.changeLanguage('ar'),
-                            ),
-                    ],
-                  ),
+                  isSelectedArabic
+                      ? SelectedButton(
+                          text: AppLocalizations.of(context)!.arabic,
+                          onPressed: () =>
+                              languageProvider.changeLanguage('ar'),
+                        )
+                      : UnselectedButton(
+                          text: AppLocalizations.of(context)!.arabic,
+                          onPressed: () =>
+                              languageProvider.changeLanguage('ar'),
+                        ),
                 ],
               ),
               Row(
+                spacing: w(5),
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     AppLocalizations.of(context)!.theme,
-                    style:
-                        Theme.of(context).appBarTheme.backgroundColor ==
-                            AppColors.backgroundColorLight
-                        ? AppText.text18Medium
-                        : AppText.text18MediumDark,
+                    style: themeProvider.isDarkTheme()
+                        ? AppText.mediumText(
+                            color: AppColors.white,
+                            fontSize: 18,
+                          )
+                        : AppText.mediumText(
+                            color: AppColors.mainColorLight,
+                            fontSize: 18,
+                          ),
                   ),
-                  Row(
-                    spacing: w(8),
-                    children: [
-                      isSelectedLight
-                          ? SelectedButtonTheme(
-                              icon: Icons.light_mode,
-                              onPressed: () =>
-                                  themeProvider.changeTheme(ThemeMode.light),
-                            )
-                          : UnSelectedButtonTheme(
-                              icon: Icons.light_mode_outlined,
-                              onPressed: () =>
-                                  themeProvider.changeTheme(ThemeMode.light),
-                            ),
+                  Spacer(),
+                  isSelectedLight
+                      ? SelectedButtonTheme(
+                          icon: Icons.light_mode,
+                          onPressed: () =>
+                              themeProvider.changeTheme(ThemeMode.light),
+                        )
+                      : UnSelectedButtonTheme(
+                          icon: Icons.light_mode_outlined,
+                          onPressed: () =>
+                              themeProvider.changeTheme(ThemeMode.light),
+                        ),
 
-                      isSelectedDark
-                          ? SelectedButtonTheme(
-                              icon: Icons.dark_mode,
-                              onPressed: () =>
-                                  themeProvider.changeTheme(ThemeMode.dark),
-                            )
-                          : UnSelectedButtonTheme(
-                              icon: Icons.dark_mode_outlined,
-                              onPressed: () =>
-                                  themeProvider.changeTheme(ThemeMode.dark),
-                            ),
-                    ],
-                  ),
+                  isSelectedDark
+                      ? SelectedButtonTheme(
+                          icon: Icons.dark_mode,
+                          onPressed: () =>
+                              themeProvider.changeTheme(ThemeMode.dark),
+                        )
+                      : UnSelectedButtonTheme(
+                          icon: Icons.dark_mode_outlined,
+                          onPressed: () =>
+                              themeProvider.changeTheme(ThemeMode.dark),
+                        ),
                 ],
               ),
               InkWell(
@@ -181,15 +184,16 @@ class StartScreen extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: h(9)),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    color:
-                        Theme.of(context).appBarTheme.backgroundColor ==
-                            AppColors.backgroundColorLight
-                        ? AppColors.mainColorLight
-                        : AppColors.mainColorDark,
+                    color: themeProvider.isDarkTheme()
+                        ? AppColors.mainColorDark
+                        : AppColors.mainColorLight,
                   ),
                   child: Text(
                     AppLocalizations.of(context)!.letStart,
-                    style: AppText.text20Medium,
+                    style: AppText.mediumText(
+                      color: AppColors.white,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),

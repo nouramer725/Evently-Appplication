@@ -74,4 +74,115 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get letStart => 'Let\'s Start';
+
+  @override
+  String get login_to_your_account => 'Login to your account';
+
+  @override
+  String get enter_your_email => 'Enter your email';
+
+  @override
+  String get enter_your_password => 'Enter your password';
+
+  @override
+  String get forget_password_question => 'Forget Password?';
+
+  @override
+  String get login => 'Login';
+
+  @override
+  String get dont_have_an_account => 'Don\'t have an account ?';
+
+  @override
+  String get signup => 'Signup';
+
+  @override
+  String get or => 'Or';
+
+  @override
+  String get login_with_google => 'Login with Google';
+
+  @override
+  String get create_your_account => 'Create your account';
+
+  @override
+  String get enter_your_name => 'Enter your name';
+
+  @override
+  String get confirm_your_password => 'Confirm your password';
+
+  @override
+  String get signup_space => 'Sign up';
+
+  @override
+  String get already_have_an_account => 'Already have an account?';
+
+  @override
+  String get sign_up_with_google => 'Sign up with Google';
+
+  @override
+  String get forgot_password => 'Forget Password';
+
+  @override
+  String get reset_password => 'Reset password';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get sport => 'Sport';
+
+  @override
+  String get birthday => 'Birthday';
+
+  @override
+  String get book_club => 'Book Club';
+
+  @override
+  String get meeting => 'Meeting';
+
+  @override
+  String get exhibition => 'Exhibition';
+
+  @override
+  String get welcome_back => 'Welcome Back ✨';
+
+  @override
+  String get search_for_event => 'Search for event';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get add_event => 'Add event';
+
+  @override
+  String get event_title => 'Event Title';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get event_description => 'Event Description....';
+
+  @override
+  String get event_date => 'Event Date';
+
+  @override
+  String get event_time => 'Event Time';
+
+  @override
+  String get choose_date => 'Choose date';
+
+  @override
+  String get choose_time => 'Choose time';
+
+  @override
+  String get event_details => 'Event details';
+
+  @override
+  String get update_event => 'Update event';
+
+  @override
+  String get edit_event => 'Edit event';
 }

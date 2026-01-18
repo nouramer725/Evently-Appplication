@@ -4,6 +4,8 @@ import 'package:evently_app/home/tabs/profile/profile_screen.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../provider/app_theme_provider.dart';
 import '../utils/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<AppThemeProvider>(context);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -41,31 +44,25 @@ class _HomeScreenState extends State<HomeScreen> {
             index: 0,
             label: AppLocalizations.of(context)!.home,
             outlinedIcon: AppAssets.homeIconUnSelected,
-            filledIcon:
-                Theme.of(context).appBarTheme.backgroundColor ==
-                    AppColors.backgroundColorLight
-                ? AppAssets.homeIconSelected
-                : AppAssets.homeIconSelectedDark,
+            filledIcon: themeProvider.isDarkTheme()
+                ? AppAssets.homeIconSelectedDark
+                : AppAssets.homeIconSelected,
           ),
           buildBottomNavigationBarItem(
             index: 1,
             label: AppLocalizations.of(context)!.favorite,
             outlinedIcon: AppAssets.favouriteIconUnSelected,
-            filledIcon:
-                Theme.of(context).appBarTheme.backgroundColor ==
-                    AppColors.backgroundColorLight
-                ? AppAssets.favouriteIconSelected
-                : AppAssets.favouriteIconSelectedDark,
+            filledIcon: themeProvider.isDarkTheme()
+                ? AppAssets.favouriteIconSelectedDark
+                : AppAssets.favouriteIconSelected,
           ),
           buildBottomNavigationBarItem(
             index: 2,
             label: AppLocalizations.of(context)!.profile,
             outlinedIcon: AppAssets.profileIconUnSelected,
-            filledIcon:
-                Theme.of(context).appBarTheme.backgroundColor ==
-                    AppColors.backgroundColorLight
-                ? AppAssets.profileIconSelected
-                : AppAssets.profileIconSelectedDark,
+            filledIcon: themeProvider.isDarkTheme()
+                ? AppAssets.profileIconSelectedDark
+                : AppAssets.profileIconSelected,
           ),
         ],
       ),

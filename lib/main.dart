@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'home/home_screen.dart';
 import 'l10n/app_localizations.dart';
-import 'onBoarding/onBoarding_screen.dart';
+import 'onBoarding/onboarding_screen.dart';
 
 void main() {
   runApp(
