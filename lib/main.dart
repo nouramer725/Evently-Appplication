@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'home/home_screen.dart';
 import 'l10n/app_localizations.dart';
+import 'login_register_Screens/login/login_screen.dart';
+import 'login_register_Screens/register/register_screen.dart';
 import 'onBoarding/onboarding_screen.dart';
 
 void main() {
@@ -43,6 +45,8 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.startScreenName: (context) => StartScreen(),
         AppRoutes.onBoardingScreenName: (context) => OnboardingScreen(),
+        AppRoutes.loginScreenName: (context) => LoginScreen(),
+        AppRoutes.registerScreenName: (context) => RegisterScreen(),
         AppRoutes.homeScreenName: (context) => HomeScreen(),
       },
     );

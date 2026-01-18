@@ -91,7 +91,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               : TextButton(
                   onPressed: () => Navigator.pushReplacementNamed(
                     context,
-                    AppRoutes.homeScreenName,
+                    AppRoutes.loginScreenName,
                   ),
                   child: Text(AppLocalizations.of(context)!.skip),
                 ),
@@ -126,7 +126,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   if (currentPage == pages.length - 1) {
                     Navigator.pushReplacementNamed(
                       context,
-                      AppRoutes.homeScreenName,
+                      AppRoutes.loginScreenName,
                     );
                   } else {
                     controller.nextPage(

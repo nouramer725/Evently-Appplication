@@ -14,11 +14,6 @@ class AppTheme {
       actionsIconTheme: IconThemeData(color: AppColors.mainColorLight),
     ),
 
-    // textTheme: TextTheme(
-    //   bodyMedium: TextStyle(color: AppColors.mainTextColorLight),
-    //   bodyLarge: TextStyle(color: AppColors.mainTextColorLight),
-    //   labelLarge: TextStyle(color: AppColors.mainColorLight),
-    // ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.mainColorLight,
@@ -87,11 +82,6 @@ class AppTheme {
       actionsIconTheme: IconThemeData(color: AppColors.mainColorDark),
     ),
 
-    // textTheme: TextTheme(
-    //   bodyMedium: TextStyle(color: AppColors.mainTextColorDark),
-    //   bodyLarge: TextStyle(color: AppColors.mainTextColorDark),
-    //   labelLarge: TextStyle(color: AppColors.mainColorDark),
-    // ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.mainColorDark,
