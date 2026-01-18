@@ -2,15 +2,15 @@ import 'package:evently_app/utils/app_colors.dart';
 import 'package:evently_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../provider/app_theme_provider.dart';
-import '../../../utils/app_text.dart';
+import '../../../../provider/app_theme_provider.dart';
+import '../../../../utils/app_text.dart';
 
-class TabItem extends StatelessWidget {
+class TabItem2 extends StatelessWidget {
   final String text;
   final IconData widget;
   final bool isSelected;
 
-  const TabItem({
+  const TabItem2({
     required this.isSelected,
     required this.widget,
     required this.text,
@@ -27,10 +27,8 @@ class TabItem extends StatelessWidget {
         color: isSelected
             ? themeProvider.isDarkTheme()
                   ? AppColors.mainColorDark
-                  : AppColors.mainColorLight
-            : themeProvider.isDarkTheme()
-            ? AppColors.transparentColor
-            : AppColors.white,
+                  : AppColors.white
+            :  AppColors.transparentColor,
         border: Border.all(
           color: isSelected
               ? Colors.transparent
@@ -47,19 +45,24 @@ class TabItem extends StatelessWidget {
           Icon(
             widget,
             color: isSelected
-                ? AppColors.white
+                ? themeProvider.isDarkTheme()
+                      ? AppColors.white
+                      : AppColors.mainColorLight
                 : themeProvider.isDarkTheme()
                 ? AppColors.mainColorDark
-                : AppColors.mainColorLight,
+                : AppColors.white,
           ),
           Text(
             text,
             style: isSelected
-                ? AppText.mediumText(color: AppColors.white, fontSize: 16)
-                : AppText.mediumText(
+                ? AppText.mediumText(
                     color: themeProvider.isDarkTheme()
                         ? AppColors.white
-                        : AppColors.mainTextColorLight,
+                        : AppColors.mainColorLight,
+                    fontSize: 16,
+                  )
+                : AppText.mediumText(
+                    color: AppColors.white,
                     fontSize: 16,
                   ),
           ),

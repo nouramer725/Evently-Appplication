@@ -6,6 +6,7 @@ import 'package:evently_app/utils/app_theme.dart';
 import 'package:evently_app/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'home/AddEvent/add_event_screen.dart';
 import 'home/home_screen.dart';
 import 'l10n/app_localizations.dart';
 import 'login_register_Screens/forget_password/forget_password_screen.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.startScreenName,
+      initialRoute: AppRoutes.homeScreenName,
       routes: {
         AppRoutes.startScreenName: (context) => StartScreen(),
         AppRoutes.onBoardingScreenName: (context) => OnboardingScreen(),
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.registerScreenName: (context) => RegisterScreen(),
         AppRoutes.forgetPasswordScreenName: (context) => ForgetPasswordScreen(),
         AppRoutes.homeScreenName: (context) => HomeScreen(),
+        AppRoutes.addEventScreenName: (context) => AddEventScreen(),
       },
     );
   }

@@ -1,4 +1,8 @@
+import 'package:evently_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import '../provider/app_theme_provider.dart';
 
 class CustomTextFormFieldWidget extends StatelessWidget {
   final Widget? suffixIcon;
@@ -18,6 +22,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
   final Color borderColor;
   final double borderWidth;
   final double borderRadius;
+  final int? maxLines;
 
   const CustomTextFormFieldWidget({
     this.suffixIcon,
@@ -37,12 +42,22 @@ class CustomTextFormFieldWidget extends StatelessWidget {
     this.borderColor = Colors.transparent,
     this.borderWidth = 1,
     this.borderRadius = 16,
+    this.maxLines,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<AppThemeProvider>(context);
+
     return TextFormField(
+      maxLines: maxLines,
+      style: GoogleFonts.poppins(
+        color: themeProvider.isDarkTheme() ? Colors.white : Colors.black,
+      ),
+      cursorColor: themeProvider.isDarkTheme()
+          ? AppColors.mainColorDark
+          : AppColors.mainColorLight,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,

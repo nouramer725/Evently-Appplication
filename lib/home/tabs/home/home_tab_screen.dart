@@ -1,4 +1,5 @@
-import 'package:evently_app/home/tabs/home/app_bar_title.dart';
+import 'package:evently_app/home/tabs/home/AppBarWidget%201/app_bar_widget1.dart';
+import 'package:evently_app/home/tabs/home/AppBarWidget%202/app_bar_widget2.dart';
 import 'package:evently_app/home/tabs/home/body_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/responsive.dart';
@@ -14,11 +15,8 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: h(150),
-        centerTitle: false,
-        title: AppBarTitle(),
-      ),
+      appBar: AppBarWidget1(),
+      // appBar: AppBarWidget2(),
       body: ListView.separated(
         itemBuilder: (context, index) {
           return BodyWidget();

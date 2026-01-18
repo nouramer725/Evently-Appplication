@@ -1,8 +1,9 @@
-import 'package:evently_app/home/tabs/favotite/favourite_tab_screen.dart';
+import 'package:evently_app/home/tabs/favorite/favourite_tab_screen.dart';
 import 'package:evently_app/home/tabs/home/home_tab_screen.dart';
 import 'package:evently_app/home/tabs/profile/profile_screen.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/utils/app_assets.dart';
+import 'package:evently_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../provider/app_theme_provider.dart';
@@ -29,7 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
     var themeProvider = Provider.of<AppThemeProvider>(context);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, AppRoutes.addEventScreenName);
+        },
         child: Icon(Icons.add, color: AppColors.inputsColorLight),
       ),
       bottomNavigationBar: BottomNavigationBar(
