@@ -121,7 +121,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sign_up_with_google => 'إنشاء حساب عبر جوجل';
 
   @override
-  String get forgot_password => 'نسيت كلمة المرور';
+  String get forgot_password => 'نسيت كلمة المرور؟';
 
   @override
   String get reset_password => 'إعادة تعيين كلمة المرور';

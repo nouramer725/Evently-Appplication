@@ -317,7 +317,7 @@ abstract class AppLocalizations {
   /// No description provided for @forgot_password.
   ///
   /// In en, this message translates to:
-  /// **'Forget Password'**
+  /// **'Forget Password ?'**
   String get forgot_password;
 
   /// No description provided for @reset_password.

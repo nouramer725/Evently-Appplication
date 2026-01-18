@@ -121,7 +121,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sign_up_with_google => 'Sign up with Google';
 
   @override
-  String get forgot_password => 'Forget Password';
+  String get forgot_password => 'Forget Password ?';
 
   @override
   String get reset_password => 'Reset password';

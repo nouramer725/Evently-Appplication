@@ -130,7 +130,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      '${AppLocalizations.of(context)!.forgot_password} ?',
+                      AppLocalizations.of(context)!.forgot_password,
                       style:
                           AppText.semiBoldText(
                             color: themeProvider.isDarkTheme()
