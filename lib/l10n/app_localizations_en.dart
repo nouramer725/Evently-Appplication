@@ -85,9 +85,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enter_your_password => 'Enter your password';
 
   @override
-  String get forget_password_question => 'Forget Password?';
-
-  @override
   String get login => 'Login';
 
   @override
@@ -122,6 +119,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forgot_password => 'Forget Password ?';
+
+  @override
+  String get forgot_password_without_question => 'Forget Password';
 
   @override
   String get reset_password => 'Reset password';

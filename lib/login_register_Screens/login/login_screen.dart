@@ -113,7 +113,11 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(
+                        context,
+                      ).pushNamed(AppRoutes.forgetPasswordScreenName);
+                    },
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(
                         AppColors.transparentColor,

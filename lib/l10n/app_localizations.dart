@@ -242,12 +242,6 @@ abstract class AppLocalizations {
   /// **'Enter your password'**
   String get enter_your_password;
 
-  /// No description provided for @forget_password_question.
-  ///
-  /// In en, this message translates to:
-  /// **'Forget Password?'**
-  String get forget_password_question;
-
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
@@ -319,6 +313,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Forget Password ?'**
   String get forgot_password;
+
+  /// No description provided for @forgot_password_without_question.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password'**
+  String get forgot_password_without_question;
 
   /// No description provided for @reset_password.
   ///

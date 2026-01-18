@@ -85,9 +85,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enter_your_password => 'أدخل كلمة المرور';
 
   @override
-  String get forget_password_question => 'نسيت كلمة المرور؟';
-
-  @override
   String get login => 'تسجيل الدخول';
 
   @override
@@ -122,6 +119,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get forgot_password => 'نسيت كلمة المرور؟';
+
+  @override
+  String get forgot_password_without_question => 'نسيت كلمة المرور';
 
   @override
   String get reset_password => 'إعادة تعيين كلمة المرور';

@@ -4,4 +4,5 @@ class AppRoutes {
   static const startScreenName = "start_screen";
   static const loginScreenName = "login_screen";
   static const registerScreenName = "register_screen";
+  static const forgetPasswordScreenName = "forget_password_screen";
 }
